@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcolorswatch.a CMakeFiles/colorswatch.dir/colorswatch_autogen/mocs_compilation.cpp.o CMakeFiles/colorswatch.dir/colorswatch.cpp.o CMakeFiles/colorswatch.dir/moc_colorswatch.cpp.o
+/usr/bin/ranlib libcolorswatch.a

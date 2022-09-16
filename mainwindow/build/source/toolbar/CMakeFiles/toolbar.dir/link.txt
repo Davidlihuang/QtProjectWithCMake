@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtoolbar.a CMakeFiles/toolbar.dir/toolbar_autogen/mocs_compilation.cpp.o CMakeFiles/toolbar.dir/toolbar.cpp.o CMakeFiles/toolbar.dir/moc_toolbar.cpp.o
+/usr/bin/ranlib libtoolbar.a
