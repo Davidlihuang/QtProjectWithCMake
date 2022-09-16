@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20.0)
-set(projectName, "BTDPcbProject")
+set(projectName, "QtProject")
 project(projectName)
 
 include (TestBigEndian)
