@@ -3,6 +3,7 @@ project(qrc)
 
 #处理头文件
 set(RESOURCE_DIR mainwindow.qrc)
+#INCLUDE_DIRECTORIES(./)
 qt5_add_resources(RCC ${RESOURCE_DIR}) #Moctool自动处理为qrc_xxx.cpp，因此需要将${Moctool}作源文件处理
 
 #编译库文件

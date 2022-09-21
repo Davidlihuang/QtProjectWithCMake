@@ -42,8 +42,8 @@
 ** DATA, OR PROFITS; OR BUSINESS INTERRUPTI execut
 ****************************************************************************/
 
-#include "./mainwindow/mainwindow.h"
-
+//#include "./mainwindow/mainwindow.h"
+#include "mainwindow.h"
 #include <QApplication>
 #include <QPainterPath>
 #include <QPainter>

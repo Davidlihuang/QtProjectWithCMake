@@ -1,0 +1,10 @@
+# Hashes of file build rules.
+560f172e52851d8de4f8d18864a3d878 source/CMakeFiles/Mainwindow_autogen
+4567d582e5cb582099b5467720b1e1cb source/colorswatch/CMakeFiles/colorswatch_autogen
+4ea88a4dd0c798384b903031401be4a4 source/colorswatch/moc_colorswatch.cpp
+b1e31dfaad70c925380efe9fa159e7cc source/mainwindow/CMakeFiles/mainwindow_autogen
+84e2385980f8144085a51817a1f3d635 source/mainwindow/moc_mainwindow.cpp
+d26f909d162b19c64c0b29cc2322f6fd source/qrc/CMakeFiles/qrc_autogen
+178c47b6cff2752c3c9de570f01c093c source/qrc/qrc_mainwindow.cpp
+cdf6800d362b8293cb2d1a3b6c2e1c3a source/toolbar/CMakeFiles/toolbar_autogen
+0b27379cd6f70eb9c6e01602040dd9d5 source/toolbar/moc_toolbar.cpp

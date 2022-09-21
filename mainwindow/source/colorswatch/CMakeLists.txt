@@ -1,5 +1,6 @@
 project(colorswatch)
 
+#INCLUDE_DIRECTORIES(./)
 qt5_wrap_cpp(Moccs colorswatch.h) 
 add_library(${PROJECT_NAME} STATIC
             colorswatch.cpp

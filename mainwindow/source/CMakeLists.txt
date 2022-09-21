@@ -2,11 +2,13 @@ cmake_minimum_required(VERSION 3.20.0)
 set(projectName "Mainwindow")
 project(${projectName})
 
+include_directories(./mainwindow ./toolbar ./colorswatch ./qrc ./ui)
 add_subdirectory(mainwindow)
 add_subdirectory(toolbar)
 add_subdirectory(colorswatch)
 add_subdirectory(qrc)
 add_subdirectory(ui)
+
 
 # set(RESOURCE_DIR qrc/mainwindow.qrc)
 # qt5_add_resources(RCC qrc/mainwindow.qrc)

@@ -49,9 +49,10 @@
 ****************************************************************************/
 
 #include "mainwindow.h"
-#include "../colorswatch/colorswatch.h"
-#include "../toolbar/toolbar.h"
-
+// #include "../colorswatch/colorswatch.h"
+// #include "../toolbar/toolbar.h"
+#include "colorswatch.h"
+#include "toolbar.h"
 #include <QAction>
 #include <QLayout>
 #include <QMenu>

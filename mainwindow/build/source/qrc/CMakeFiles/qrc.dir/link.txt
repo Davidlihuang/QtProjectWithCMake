@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/huangli/qtexample/QtProjectWithCMake/mainwindow/bin/libarary/static/libqrc.a CMakeFiles/qrc.dir/qrc_autogen/mocs_compilation.cpp.o CMakeFiles/qrc.dir/qrc_mainwindow.cpp.o
+/usr/bin/ranlib /home/huangli/qtexample/QtProjectWithCMake/mainwindow/bin/libarary/static/libqrc.a
