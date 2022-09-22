@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/huangli/qtexample/QtProjectWithCMake/mypainter/bin/libarary/static/libpainter.a CMakeFiles/painter.dir/painter_autogen/mocs_compilation.cpp.o CMakeFiles/painter.dir/painter.cc.o CMakeFiles/painter.dir/moc_painter.cpp.o
+/usr/bin/ranlib /home/huangli/qtexample/QtProjectWithCMake/mypainter/bin/libarary/static/libpainter.a
