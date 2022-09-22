@@ -13,8 +13,10 @@ add_subdirectory(ui)
 # set(RESOURCE_DIR qrc/mainwindow.qrc)
 # qt5_add_resources(RCC qrc/mainwindow.qrc)
 
+
 set(LIBS lib::qrc lib::mainwin lib::toolbar lib::colorswatch)
-add_executable(${PROJECT_NAME} main.cpp ${RESOURCE_DIR} )
+add_executable(${PROJECT_NAME} main.cpp)
 
 #和Qt库链接
+set(Qt5lib Qt5::Core Qt5::Gui Qt5::Widgets)
 target_link_libraries(${PROJECT_NAME} ${LIBS})

@@ -7,7 +7,9 @@ set(CMAKE_CXX_STANDARD 17)
 # set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #处理头文件
-set(RESOURCE_DIR form.qrc)
+# set(RESOURCE_DIR form.qrc)
+file(GLOB file_h "./*.h")
+file(GLOB RESOURCE_DIR "./*.qrc")
 qt5_add_resources(RCC ${RESOURCE_DIR}) #Moctool自动处理为qrc_xxx.cpp，因此需要将${Moctool}作源文件处理
 
 #编译库文件

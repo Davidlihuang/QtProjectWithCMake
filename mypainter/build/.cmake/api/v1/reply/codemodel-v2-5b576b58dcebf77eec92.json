@@ -24,9 +24,7 @@
 					[
 						2,
 						3,
-						4,
-						5,
-						6
+						4
 					],
 					"jsonFile" : "directory-source-Debug-5b5a50b02d94cdb5eb2c.json",
 					"minimumCMakeVersion" : 
@@ -38,8 +36,8 @@
 					"source" : "source",
 					"targetIndexes" : 
 					[
-						0,
-						1
+						3,
+						4
 					]
 				},
 				{
@@ -54,52 +52,52 @@
 					"source" : "source/mainwindow",
 					"targetIndexes" : 
 					[
-						4,
-						5
+						0,
+						1
 					]
 				},
 				{
-					"build" : "source/toolbar",
-					"jsonFile" : "directory-source.toolbar-Debug-c16826e87ba863edae6d.json",
+					"build" : "source/painter",
+					"jsonFile" : "directory-source.painter-Debug-63e9a7a24cd05996c001.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.20.0"
 					},
 					"parentIndex" : 1,
 					"projectIndex" : 3,
-					"source" : "source/toolbar",
+					"source" : "source/painter",
 					"targetIndexes" : 
 					[
-						8,
-						9
+						2,
+						5
 					]
 				},
 				{
-					"build" : "source/colorswatch",
-					"jsonFile" : "directory-source.colorswatch-Debug-0e70b1d543046d96b048.json",
+					"build" : "source/gui",
+					"childIndexes" : 
+					[
+						5,
+						6
+					],
+					"jsonFile" : "directory-source.gui-Debug-b0bcd17ec41731e35f9d.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.20.0"
 					},
 					"parentIndex" : 1,
 					"projectIndex" : 4,
-					"source" : "source/colorswatch",
-					"targetIndexes" : 
-					[
-						2,
-						3
-					]
+					"source" : "source/gui"
 				},
 				{
-					"build" : "source/qrc",
-					"jsonFile" : "directory-source.qrc-Debug-47d6a0176e2ed4f60f84.json",
+					"build" : "source/gui/qrc",
+					"jsonFile" : "directory-source.gui.qrc-Debug-5eb7464b2b0f70431548.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.20.0"
 					},
-					"parentIndex" : 1,
+					"parentIndex" : 4,
 					"projectIndex" : 5,
-					"source" : "source/qrc",
+					"source" : "source/gui/qrc",
 					"targetIndexes" : 
 					[
 						6,
@@ -107,15 +105,15 @@
 					]
 				},
 				{
-					"build" : "source/ui",
-					"jsonFile" : "directory-source.ui-Debug-baf1559fb31c83751159.json",
+					"build" : "source/gui/ui",
+					"jsonFile" : "directory-source.gui.ui-Debug-0b5e5f1ad83d6a0cbc02.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.20.0"
 					},
-					"parentIndex" : 1,
-					"projectIndex" : 1,
-					"source" : "source/ui"
+					"parentIndex" : 4,
+					"projectIndex" : 6,
+					"source" : "source/gui/ui"
 				}
 			],
 			"name" : "Debug",
@@ -137,20 +135,18 @@
 					[
 						2,
 						3,
-						4,
-						5
+						4
 					],
 					"directoryIndexes" : 
 					[
-						1,
-						6
+						1
 					],
-					"name" : "Mainwindow",
+					"name" : "painterProj",
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						0,
-						1
+						3,
+						4
 					]
 				},
 				{
@@ -162,8 +158,8 @@
 					"parentIndex" : 1,
 					"targetIndexes" : 
 					[
-						4,
-						5
+						0,
+						1
 					]
 				},
 				{
@@ -171,26 +167,26 @@
 					[
 						3
 					],
-					"name" : "toolbar",
-					"parentIndex" : 1,
-					"targetIndexes" : 
-					[
-						8,
-						9
-					]
-				},
-				{
-					"directoryIndexes" : 
-					[
-						4
-					],
-					"name" : "colorswatch",
+					"name" : "painter",
 					"parentIndex" : 1,
 					"targetIndexes" : 
 					[
 						2,
-						3
+						5
 					]
+				},
+				{
+					"childIndexes" : 
+					[
+						5,
+						6
+					],
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "gui",
+					"parentIndex" : 1
 				},
 				{
 					"directoryIndexes" : 
@@ -198,48 +194,28 @@
 						5
 					],
 					"name" : "qrc",
-					"parentIndex" : 1,
+					"parentIndex" : 4,
 					"targetIndexes" : 
 					[
 						6,
 						7
 					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						6
+					],
+					"name" : "formui",
+					"parentIndex" : 4
 				}
 			],
 			"targets" : 
 			[
 				{
-					"directoryIndex" : 1,
-					"id" : "Mainwindow::@411ffd8adc737496fe19",
-					"jsonFile" : "target-Mainwindow-Debug-a088ad3abb9682d97ac1.json",
-					"name" : "Mainwindow",
-					"projectIndex" : 1
-				},
-				{
-					"directoryIndex" : 1,
-					"id" : "Mainwindow_autogen::@411ffd8adc737496fe19",
-					"jsonFile" : "target-Mainwindow_autogen-Debug-32d5e2348bea270e762d.json",
-					"name" : "Mainwindow_autogen",
-					"projectIndex" : 1
-				},
-				{
-					"directoryIndex" : 4,
-					"id" : "colorswatch::@97fcd94ba5f14494ec3e",
-					"jsonFile" : "target-colorswatch-Debug-d30a7729227846f1a5fe.json",
-					"name" : "colorswatch",
-					"projectIndex" : 4
-				},
-				{
-					"directoryIndex" : 4,
-					"id" : "colorswatch_autogen::@97fcd94ba5f14494ec3e",
-					"jsonFile" : "target-colorswatch_autogen-Debug-8d5095f6899e0912d225.json",
-					"name" : "colorswatch_autogen",
-					"projectIndex" : 4
-				},
-				{
 					"directoryIndex" : 2,
 					"id" : "mainwindow::@8dadf22c2101f5c868ff",
-					"jsonFile" : "target-mainwindow-Debug-d7d360938de9b471b122.json",
+					"jsonFile" : "target-mainwindow-Debug-0044eaee30a1576c0ed2.json",
 					"name" : "mainwindow",
 					"projectIndex" : 2
 				},
@@ -251,32 +227,46 @@
 					"projectIndex" : 2
 				},
 				{
+					"directoryIndex" : 3,
+					"id" : "painter::@3012d27abf9079ba68b1",
+					"jsonFile" : "target-painter-Debug-45a217a8bcc2e1f5f133.json",
+					"name" : "painter",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "painterProj::@411ffd8adc737496fe19",
+					"jsonFile" : "target-painterProj-Debug-e9d58b10196810ce5860.json",
+					"name" : "painterProj",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "painterProj_autogen::@411ffd8adc737496fe19",
+					"jsonFile" : "target-painterProj_autogen-Debug-590cd8b14b85860a0f57.json",
+					"name" : "painterProj_autogen",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "painter_autogen::@3012d27abf9079ba68b1",
+					"jsonFile" : "target-painter_autogen-Debug-ea25421cad3ca8418d56.json",
+					"name" : "painter_autogen",
+					"projectIndex" : 3
+				},
+				{
 					"directoryIndex" : 5,
-					"id" : "qrc::@b5dfba1635ba027622da",
-					"jsonFile" : "target-qrc-Debug-4adaa1ea1e65315ddf01.json",
+					"id" : "qrc::@286da38f19dc9df37f9e",
+					"jsonFile" : "target-qrc-Debug-c0e0324d96df2e8ea612.json",
 					"name" : "qrc",
 					"projectIndex" : 5
 				},
 				{
 					"directoryIndex" : 5,
-					"id" : "qrc_autogen::@b5dfba1635ba027622da",
-					"jsonFile" : "target-qrc_autogen-Debug-45307771857c030183e9.json",
+					"id" : "qrc_autogen::@286da38f19dc9df37f9e",
+					"jsonFile" : "target-qrc_autogen-Debug-b7ee3d3898f2395a6acc.json",
 					"name" : "qrc_autogen",
 					"projectIndex" : 5
-				},
-				{
-					"directoryIndex" : 3,
-					"id" : "toolbar::@73cb15c0758f1ec98423",
-					"jsonFile" : "target-toolbar-Debug-94198b57603d03485dff.json",
-					"name" : "toolbar",
-					"projectIndex" : 3
-				},
-				{
-					"directoryIndex" : 3,
-					"id" : "toolbar_autogen::@73cb15c0758f1ec98423",
-					"jsonFile" : "target-toolbar_autogen-Debug-171f6fd17d03b1a4db21.json",
-					"name" : "toolbar_autogen",
-					"projectIndex" : 3
 				}
 			]
 		}
@@ -284,8 +274,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/build",
-		"source" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow"
+		"build" : "/home/huangli/qtexample/QtProjectWithCMake/mypainter/build",
+		"source" : "/home/huangli/qtexample/QtProjectWithCMake/mypainter"
 	},
 	"version" : 
 	{

@@ -1,0 +1,5 @@
+-I/home/huangli/qtexample/QtProjectWithCMake/mypainter/source/./mainwindow
+-I/home/huangli/qtexample/QtProjectWithCMake/mypainter/source/./painter
+-o
+/home/huangli/qtexample/QtProjectWithCMake/mypainter/build/source/painter/moc_painter.cpp
+/home/huangli/qtexample/QtProjectWithCMake/mypainter/source/painter/painter.h

@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/bin/Mainwindow"
+			"path" : "/home/huangli/qtexample/QtProjectWithCMake/mypainter/bin/painterProj"
 		}
 	],
 	"backtrace" : 1,
@@ -17,7 +17,7 @@
 		"files" : 
 		[
 			"source/CMakeLists.txt",
-			"source/qrc/CMakeLists.txt"
+			"source/gui/qrc/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -27,13 +27,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 17,
+				"line" : 15,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 20,
+				"line" : 18,
 				"parent" : 0
 			},
 			{
@@ -42,13 +42,19 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 20,
+				"line" : 26,
 				"parent" : 3
 			},
 			{
 				"command" : 2,
 				"file" : 0,
 				"line" : 5,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 6,
 				"parent" : 0
 			}
 		]
@@ -88,43 +94,31 @@
 			[
 				{
 					"backtrace" : 0,
-					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/build/source/Mainwindow_autogen/include"
+					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mypainter/build/source/painterProj_autogen/include"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/./mainwindow"
+					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mypainter/source/./mainwindow"
 				},
 				{
-					"backtrace" : 5,
-					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/./toolbar"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/./colorswatch"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/./qrc"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/./ui"
+					"backtrace" : 6,
+					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mypainter/source/./painter"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/qrc/."
+					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mypainter/source/gui/qrc/."
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/mainwindow/."
+					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mypainter/source/mainwindow/./mainwindow.h"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/toolbar/."
+					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mypainter/build/source/gui/ui/ui_mainform.h"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/colorswatch/."
+					"path" : "/home/huangli/qtexample/QtProjectWithCMake/mypainter/source/painter/./painter.h"
 				},
 				{
 					"backtrace" : 2,
@@ -176,22 +170,18 @@
 		},
 		{
 			"backtrace" : 2,
-			"id" : "toolbar::@73cb15c0758f1ec98423"
+			"id" : "painter::@3012d27abf9079ba68b1"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "colorswatch::@97fcd94ba5f14494ec3e"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "qrc::@b5dfba1635ba027622da"
+			"id" : "qrc::@286da38f19dc9df37f9e"
 		},
 		{
 			"backtrace" : 0,
-			"id" : "Mainwindow_autogen::@411ffd8adc737496fe19"
+			"id" : "painterProj_autogen::@411ffd8adc737496fe19"
 		}
 	],
-	"id" : "Mainwindow::@411ffd8adc737496fe19",
+	"id" : "painterProj::@411ffd8adc737496fe19",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -210,22 +200,17 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/bin/libarary/static/libqrc.a",
+				"fragment" : "/home/huangli/qtexample/QtProjectWithCMake/mypainter/bin/libarary/static/libqrc.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/bin/libarary/static/libmainwindow.a",
+				"fragment" : "/home/huangli/qtexample/QtProjectWithCMake/mypainter/bin/libarary/static/libmainwindow.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/bin/libarary/static/libtoolbar.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "/home/huangli/qtexample/QtProjectWithCMake/mainwindow/bin/libarary/static/libcolorswatch.a",
+				"fragment" : "/home/huangli/qtexample/QtProjectWithCMake/mypainter/bin/libarary/static/libpainter.a",
 				"role" : "libraries"
 			},
 			{
@@ -246,8 +231,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "Mainwindow",
-	"nameOnDisk" : "Mainwindow",
+	"name" : "painterProj",
+	"nameOnDisk" : "painterProj",
 	"paths" : 
 	{
 		"build" : "source",
@@ -270,13 +255,13 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/source/Mainwindow_autogen/mocs_compilation.cpp",
+			"path" : "build/source/painterProj_autogen/mocs_compilation.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "source/main.cpp",
+			"path" : "source/main.cc",
 			"sourceGroupIndex" : 0
 		}
 	],

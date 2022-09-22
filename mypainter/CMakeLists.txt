@@ -10,9 +10,11 @@ set(CMAKE_CXX_STANDARD 17)
 #设置文件生成路径
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
 message(STATUS "excutable path: ${EXECUTABLE_OUTPUT_PATH}" )
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/bin/libarary)    
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/bin/libarary) 
 
+#设置文件生成路径
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin) #设置可执行文件生成路径
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/libarary/static)    #设置静态库路径
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/libarary/dynamic)    #设置动态库路径
 
 #查找需要的包
 set(CMAKE_PREFIX_PATH "/opt/Qt5.12.12/5.12.12/gcc_64/")
