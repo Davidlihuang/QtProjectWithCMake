@@ -53,10 +53,12 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../QpainterLearn/main.cpp \
-		../QpainterLearn/widget.cpp qrc_qmake_qmake_qm_files.cpp \
+		../QpainterLearn/widget.cpp qrc_imgsrc.cpp \
+		qrc_qmake_qmake_qm_files.cpp \
 		moc_widget.cpp
 OBJECTS       = main.o \
 		widget.o \
+		qrc_imgsrc.o \
 		qrc_qmake_qmake_qm_files.o \
 		moc_widget.o
 DIST          = /opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf \
@@ -233,6 +235,7 @@ DIST          = /opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf \
+		../QpainterLearn/.qmake.stash \
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf \
@@ -440,6 +443,7 @@ Makefile: ../QpainterLearn/QpainterLearn.pro /opt/Qt5.12.12/5.12.12/gcc_64/mkspe
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf \
@@ -461,6 +465,7 @@ Makefile: ../QpainterLearn/QpainterLearn.pro /opt/Qt5.12.12/5.12.12/gcc_64/mkspe
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/yacc.prf \
 		/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/lex.prf \
 		../QpainterLearn/QpainterLearn.pro \
+		../QpainterLearn/imgsrc.qrc \
 		qmake_qmake_qm_files.qrc
 	$(QMAKE) -o Makefile ../QpainterLearn/QpainterLearn.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 /opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf:
@@ -637,6 +642,7 @@ Makefile: ../QpainterLearn/QpainterLearn.pro /opt/Qt5.12.12/5.12.12/gcc_64/mkspe
 /opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf:
 /opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf:
 /opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf:
 /opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf:
 /opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf:
@@ -658,6 +664,7 @@ Makefile: ../QpainterLearn/QpainterLearn.pro /opt/Qt5.12.12/5.12.12/gcc_64/mkspe
 /opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/yacc.prf:
 /opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/lex.prf:
 ../QpainterLearn/QpainterLearn.pro:
+../QpainterLearn/imgsrc.qrc:
 qmake_qmake_qm_files.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../QpainterLearn/QpainterLearn.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -674,7 +681,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../QpainterLearn/QpainterLearn_zh_CN.ts $(DISTDIR)/
-	$(COPY_FILE) --parents qmake_qmake_qm_files.qrc $(DISTDIR)/
+	$(COPY_FILE) --parents ../QpainterLearn/imgsrc.qrc qmake_qmake_qm_files.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../QpainterLearn/widget.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../QpainterLearn/main.cpp ../QpainterLearn/widget.cpp $(DISTDIR)/
@@ -709,9 +716,14 @@ compiler_lrelease_clean:
 .qm/QpainterLearn_zh_CN.qm: ../QpainterLearn/QpainterLearn_zh_CN.ts
 	/opt/Qt5.12.12/5.12.12/gcc_64/bin/lrelease ../QpainterLearn/QpainterLearn_zh_CN.ts -qm .qm/QpainterLearn_zh_CN.qm
 
-compiler_rcc_make_all: qrc_qmake_qmake_qm_files.cpp
+compiler_rcc_make_all: qrc_imgsrc.cpp qrc_qmake_qmake_qm_files.cpp
 compiler_rcc_clean:
-	-$(DEL_FILE) qrc_qmake_qmake_qm_files.cpp
+	-$(DEL_FILE) qrc_imgsrc.cpp qrc_qmake_qmake_qm_files.cpp
+qrc_imgsrc.cpp: ../QpainterLearn/imgsrc.qrc \
+		/opt/Qt5.12.12/5.12.12/gcc_64/bin/rcc \
+		../QpainterLearn/qt.png
+	/opt/Qt5.12.12/5.12.12/gcc_64/bin/rcc -name imgsrc ../QpainterLearn/imgsrc.qrc -o qrc_imgsrc.cpp
+
 qrc_qmake_qmake_qm_files.cpp: qmake_qmake_qm_files.qrc \
 		/opt/Qt5.12.12/5.12.12/gcc_64/bin/rcc \
 		.qm/QpainterLearn_zh_CN.qm
@@ -830,6 +842,14 @@ moc_widget.cpp: ../QpainterLearn/widget.h \
 		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
 		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
 		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/QPainter \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpainter.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
 		moc_predefs.h \
 		/opt/Qt5.12.12/5.12.12/gcc_64/bin/moc
 	/opt/Qt5.12.12/5.12.12/gcc_64/bin/moc $(DEFINES) --include /home/huangli/MyLearning/QtProjectWithCMake/Qt5Learning/7-Graph/7.1_Qpainter/build-QpainterLearn-Desktop_Qt_5_12_12_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++ -I/home/huangli/MyLearning/QtProjectWithCMake/Qt5Learning/7-Graph/7.1_Qpainter/QpainterLearn -I/opt/Qt5.12.12/5.12.12/gcc_64/include -I/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/opt/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../QpainterLearn/widget.h -o moc_widget.cpp
@@ -959,6 +979,14 @@ main.o: ../QpainterLearn/main.cpp ../QpainterLearn/widget.h \
 		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
 		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
 		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/QPainter \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpainter.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
 		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qapplication.h \
 		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1075,8 +1103,27 @@ widget.o: ../QpainterLearn/widget.cpp ../QpainterLearn/widget.h \
 		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
 		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
 		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_widget.h
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/QPainter \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpainter.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
+		ui_widget.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o ../QpainterLearn/widget.cpp
+
+qrc_imgsrc.o: qrc_imgsrc.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_imgsrc.o qrc_imgsrc.cpp
 
 qrc_qmake_qmake_qm_files.o: qrc_qmake_qmake_qm_files.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_qmake_qmake_qm_files.o qrc_qmake_qmake_qm_files.cpp
