@@ -34,6 +34,7 @@ void Widget::paintEvent(QPaintEvent* event)
 
         QPainter painter;
         painter.begin(this);
+        painter.setBrush(Qt::NoBrush);
 
         //set pen
         painter.setPen(Qt::blue);
@@ -122,7 +123,7 @@ void Widget::paintEvent(QPaintEvent* event)
         linejoinStyle(painter);
 
         ///<brash fill
-        brushfill(painter);
+        //brushfill(painter);
 
         painter.end();
     }
@@ -143,7 +144,7 @@ void Widget:: brushfill(QPainter& painter)
     painter.drawEllipse(50, 350, 100, 50);
 
     ///< brush file img
-    QPixmap pixmap(":Resources/qt.png");
+    QPixmap pixmap(":/qt.png");
     int w = pixmap.width();
     int h = pixmap.height();
     pixmap.scaled(w,h,Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
@@ -151,7 +152,7 @@ void Widget:: brushfill(QPainter& painter)
     QBrush br(pixmap);
     painter.setBrush(br);
     painter.setPen(Qt::blue);
-    painter.drawRect(0,0, w, h);
+    painter.drawRect(200,350, w, h);
 }
 void Widget::linecpaStyle(QPainter& painter)
 {
