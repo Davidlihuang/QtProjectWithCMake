@@ -1,0 +1,5 @@
+-I/home/huangli/qtexample/Qt5-MusicPlayer/LightMusicPlayer/LightMusicPlayer
+-I/home/huangli/qtexample/Qt5-MusicPlayer/LightMusicPlayer/LightMusicPlayer/build
+-o
+/home/huangli/qtexample/Qt5-MusicPlayer/LightMusicPlayer/LightMusicPlayer/build/include/moc_MusicListWidget.cpp
+/home/huangli/qtexample/Qt5-MusicPlayer/LightMusicPlayer/LightMusicPlayer/include/MusicListWidget.h

@@ -1,0 +1,12 @@
+# Hashes of file build rules.
+62cdb5a919844856ba059c2765322a7e include/moc_LyricWidget.cpp
+9ea35d3e4f0d5f1dc8df2a762aff30c5 include/moc_Music.cpp
+02877cfae46de1d49afb14a4482ad335 include/moc_MusicList.cpp
+e7f5103b957add77915c654791412fde include/moc_MusicListDialog.cpp
+9e3455b4ae1501ede8bab390ae70b3f6 include/moc_MusicListWidget.cpp
+f6d5c9138da988bf6c7bcac55af5b6d2 include/moc_mainWidget.cpp
+763be8b0eb65ae89985199a0b57ffe8f include/moc_myqss.cpp
+95e2248837b729fd999eddfb9a5d1703 qrc_imagefile.cpp
+2e08e89e2fd61951ac723f5a3dad0afe ui_LyricWidget.h
+9ccf31465da33e29829e2977b4d8089a ui_MusicListDialog.h
+c47362a4e8db827635e86ad741dea69b ui_mainWidget.h
