@@ -23,6 +23,9 @@ Widget::Widget(QWidget *parent)
     ui->scrbar_horizon->setRange(0,100);
     ui->pgbar_horizon->setRange(0, 100);
 
+    ui->pgbar_horizon->setValue(0);
+    ui->pgbar_vertical->setValue(0);
+
     connectFunctions();
 }
 
