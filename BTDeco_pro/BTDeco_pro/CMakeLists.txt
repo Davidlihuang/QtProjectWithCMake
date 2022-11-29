@@ -1,15 +1,29 @@
 #指定cmake的最小版本号
-CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
-
+CMAKE_MINIMUM_REQUIRED(VERSION 3.20.0)
+include(FetchContent)
 #指定项目名称
 PROJECT(BTDECO LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 11)
 
-#指定Qt路径和启用当前目录(按需设置)
-SET(CMAKE_PREFIX_PATH " /opt/Qt5.13.0/5.13.0/gcc_64/lib/cmake")
+#指定Qt路径和启用当前目录(按需设置),兼容window和linux
+IF(WIN32)
+    message("In windows")
+    SET(CMAKE_PREFIX_PATH " D:\\software\\qt\\5.12.11\\mingw73_64\\lib\\cmake")
+    set(Qt5_DIR ${CMAKE_PREFIX_PATH}\\Qt5)
+    message(${Qt5_DIR})
+ELSE()
+    SET(CMAKE_PREFIX_PATH " /opt/Qt5.13.0/5.13.0/gcc_64/lib/cmake")
+    set(Qt5_DIR ${CMAKE_PREFIX_PATH}/Qt5)
+    message(${Qt5_DIR})
+    message("In linux like")
+ENDIF()
+
+
 SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 #引入Qt库
 find_package(Qt5 COMPONENTS Core Gui Widgets Sql  Network Concurrent Multimedia REQUIRED)
+
 
 
 #添加预编译宏
@@ -28,8 +42,8 @@ FILE(GLOB MOC_FILES "moc_*.cpp")
 
 #将ui文件编译成ui_*.h文件
 IF(FORMS)
-	QT5_WRAP_UI(FORMS_UIC ${FORMS})
-    message("forms gen", ${FORMS_UIC})
+    QT5_WRAP_UI(FORMS_UIC ${FORMS})
+    message("forms gen" ${FORMS_UIC})
 ENDIF()
 
 #将包含Q_OBJECT的头文件编译成moc_*.cpp文件
@@ -39,7 +53,7 @@ QT5_WRAP_CPP(MOC_FILES ${HEADER_FILES})
 QT5_ADD_RESOURCES(RES_FILES ${RESOURCE_FILES})
 
 #启用当前头文件目录
-#SET(CMAKE_INCLUDE_CURRENT_DIR ON)
+SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 #将ui文件和生成文件整理在一个文件夹中
 SOURCE_GROUP("Form Files" FILES ${FORMS})
@@ -71,34 +85,36 @@ ENDIF()
 #设置EXE文件的输出目录
 SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/x64)
 
-#引入库目录头文件
-# INCLUDE_DIRECTORIES(
-#  ${SDK_PATH}/libpng/include
-#  ${SDK_PATH}/zlib/include
-#  ${SDK_PATH}/log4cplus/include
-#  ${SDK_PATH}/opencv3.4/include
-#  ${SDK_PATH}/opencv3.4/include/opencv
-#  ${SDK_PATH}/opencv3.4/include/opencv2
-#  )
 
 INCLUDE_DIRECTORIES(${AUTOGEN_BUILD_DIR})
 
 #链接以上lib库
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${PROJECT_LIBRARIES})
 target_include_directories(${PROJECT_NAME} PUBLIC "./include")
-# #链接opencv开发库
-# TARGET_LINK_LIBRARIES(${PROJECT_NAME}
-# 	debug opencv_world343d.lib			optimized opencv_world343.lib					
-# 	debug zlibstaticd.lib				optimized zlibstatic.lib
-# 	debug libpng16_staticd.lib			optimized libpng16_static.lib
-# 	debug log4cplusUD.lib				optimized log4cplusU.lib
-# )
 
-#加载静态LIB
-#TARGET_LINK_LIBRARIES(${PROJECT_NAME}
-#	Algorithm.lib
-#)
+
+
+#第三方工具库
+# FetchContent_Declare(jsoncpp
+#         GIT_REPOSITORY https://github.com/open-source-parsers/jsoncpp.git
+#         GIT_TAG 1.9.4)
+
+# # 建议使用压缩包的方式依赖，下载速度更快
+# #FetchContent_Declare(jsoncpp
+# #        URL https://github.com/open-source-parsers/jsoncpp/archive/1.9.4.tar.gz)
+# FetchContent_MakeAvailable(jsoncpp)
+#spdlog
+FetchContent_Declare(
+    spdlog 
+    GIT_REPOSITORY https://github.com/gabime/spdlog.git
+    GIT_TAG v1.11.0
+    SOURCE_DIR
+    ${CMAKE_SOURCE_DIR}/lib/spdlog)
+
+FetchContent_MakeAvailable(spdlog)   
+
 
 #启用Qt的库模块
-TARGET_LINK_LIBRARIES( ${PROJECT_NAME} Qt5::Multimedia Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Sql Qt5::Network Qt5::Concurrent)
-#QT5_USE_MODULES(${PROJECT_NAME} Widgets Core Gui Sql Multimedia Network Concurrent)
+TARGET_LINK_LIBRARIES( ${PROJECT_NAME} Qt5::Multimedia Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Sql Qt5::Network Qt5::Concurrent spdlog::spdlog)
+QT5_USE_MODULES(${PROJECT_NAME} Widgets Core Gui Sql Multimedia Network Concurrent)
+
