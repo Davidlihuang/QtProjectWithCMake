@@ -14,7 +14,6 @@
 #include <QDir>
 #include <QPlainTextEdit>
 #include <QProcess>
-
 #include "ui_mainwindow.h"
 
 namespace Ui {

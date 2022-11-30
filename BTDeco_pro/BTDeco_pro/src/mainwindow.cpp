@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->rbtn_domainFrequency->setChecked(false);
     domainType = cDomainType::timing;
 
+
     ///< simulation type init as cosimulation
     ui->rbtn_simulTypeCoSimule->setChecked(true);
     ui->rbtn_simuTypeElectOnly->setChecked(false);

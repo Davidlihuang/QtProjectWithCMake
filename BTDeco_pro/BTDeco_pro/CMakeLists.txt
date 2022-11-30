@@ -116,5 +116,5 @@ FetchContent_MakeAvailable(spdlog)
 
 #启用Qt的库模块
 TARGET_LINK_LIBRARIES( ${PROJECT_NAME} Qt5::Multimedia Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Sql Qt5::Network Qt5::Concurrent spdlog::spdlog)
-QT5_USE_MODULES(${PROJECT_NAME} Widgets Core Gui Sql Multimedia Network Concurrent)
+#QT5_USE_MODULES(${PROJECT_NAME} Widgets Core Gui Sql Multimedia Network Concurrent)
 
