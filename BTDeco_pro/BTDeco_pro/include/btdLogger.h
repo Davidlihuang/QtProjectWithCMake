@@ -33,9 +33,6 @@
 
 
 
-
-
-
 class FilePathMag
 {
 enum class Platform{ windows, linux};
@@ -128,19 +125,32 @@ static inline int NowTimeToInt()
  * @brief BtdLogger：  The logger  to record runing status
  * 
  *********************************************************/
+struct LogInfo
+{
+    bool        isConsole;    // log输出到console
+    
+    std::string loggerName;   // logger 的名字
+    std::string savePath;     // log文件保存路径
+
+    std::string pattern;      // log输出的格式
+    std::string logLevel;     // log等级
+    long        eachFileSize; // rotate中每个文件的大小
+    int         maxFileNums;  // 最大的文件数量
+    long        poolSize;     // logger的线程池大小
+    int         threaNum;     // async logger的工作线程数
+    std::string flushLevel;   // flush level to logger file
+};
+
 class BtdLogger
 {
 public:
-    static BtdLogger &getInstance()
-    {
-        std::call_once(initInstanceFlag, &BtdLogger::initSingleton);
-        // volatile int dummy{};
-        return *instance;
-    }
+    
+    static BtdLogger* getInstance(const LogInfo* info=nullptr);
 
 private:
-    BtdLogger();
+    BtdLogger(const LogInfo* info=nullptr);
     ~BtdLogger();
+    
     BtdLogger(const BtdLogger &) = delete;
     BtdLogger &operator=(const BtdLogger &) = delete;
 
@@ -151,9 +161,10 @@ private:
     std::shared_ptr<spdlog::logger> m_logger;
 
 private:
-    static void initSingleton()
+    static void initSingleton(const LogInfo* info)
     {
-        instance = new BtdLogger;
+        std::cout << "crate BtdLogger Sington instance!" << std::endl;
+        instance = new BtdLogger(info);
     }
 
 public:
@@ -161,81 +172,6 @@ public:
 };
 
 
-///< realize all logger functions;
-BtdLogger::BtdLogger()
-    {
-        // hardcode log path
-		const std::string log_dir = "./log"; // should create the folder if not exist
-		const std::string logger_name_prefix = "btdlog_";
- 
-		// decide print to console or log file
-		bool console = false;
- 
-		// decide the log level
-		std::string level = "debug";
-
-        try
-        {
-            // logger name with timestamp
-            int date = NowDateToInt();
-            int time = NowTimeToInt();
-            const std::string logger_name = logger_name_prefix + std::to_string(date) + "_" + std::to_string(time);
-
-            if (console)
-                m_logger = spdlog::stdout_color_st(logger_name); // single thread console output faster
-            else
-                // m_logger = spdlog::create_async<spdlog::sinks::basic_file_sink_mt>(logger_name, log_dir + "/" + logger_name + ".log"); // only one log file
-                m_logger = spdlog::create_async<spdlog::sinks::rotating_file_sink_mt>(logger_name, log_dir + "/" + logger_name + ".log", 500 * 1024 * 1024, 1000); // multi part log files, with every part 500M, max 1000 files
-
-            // custom format
-            m_logger->set_pattern("%Y-%m-%d %H:%M:%S.%f <thread %t> [%l] [%@] %v"); // with timestamp, thread_id, filename and line number
-
-            if (level == "trace")
-            {
-                m_logger->set_level(spdlog::level::trace);
-                m_logger->flush_on(spdlog::level::trace);
-            }
-            else if (level == "debug")
-            {
-                m_logger->set_level(spdlog::level::debug);
-                m_logger->flush_on(spdlog::level::debug);
-            }
-            else if (level == "info")
-            {
-                m_logger->set_level(spdlog::level::info);
-                m_logger->flush_on(spdlog::level::info);
-            }
-            else if (level == "warn")
-            {
-                m_logger->set_level(spdlog::level::warn);
-                m_logger->flush_on(spdlog::level::warn);
-            }
-            else if (level == "error")
-            {
-                m_logger->set_level(spdlog::level::err);
-                m_logger->flush_on(spdlog::level::err);
-            }
-        }
-        catch (const spdlog::spdlog_ex &ex)
-        {
-            std::cout << "Log initialization failed: " << ex.what() << std::endl;
-        }
-}
-
-BtdLogger::~BtdLogger()
-{
-    spdlog::drop_all(); //must do
-    spdlog::shutdown();
-}
-
-std::shared_ptr<spdlog::logger> BtdLogger::getLogger()
-{
-    return m_logger;
-}
-
-
-BtdLogger* BtdLogger::instance= nullptr;
-std::once_flag BtdLogger::initInstanceFlag;
 // use embedded macro to support file and line number
 #define LOG_TRACE(...) SPDLOG_LOGGER_CALL(BtdLogger::getInstance()->getLogger().get(), spdlog::level::trace, __VA_ARGS__)
 #define LOG_DEBUG(...) SPDLOG_LOGGER_CALL(BtdLogger::getInstance()->getLogger().get(), spdlog::level::debug, __VA_ARGS__)
