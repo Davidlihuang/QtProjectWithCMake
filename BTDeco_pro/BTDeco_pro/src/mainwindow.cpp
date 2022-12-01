@@ -11,7 +11,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     curPath = QDir::currentPath();
-    opticalToolPath = "D:\\software\\newpSim\\pSim.exe";
+    opticalToolPath = curPath;
+    simulResultOutPath = curPath;
+
     ///< open netlist
     ui->rbtn_specifyNetlist->setChecked(true);
     ui->gb_specifyNetlist->setEnabled(true);
@@ -31,11 +33,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->rbtn_simuTypeOpticalOnly->setChecked(false);
     simulationType = cSimulationType::coSimulate;
 
+
     ///< output file type
     ui->rbtn_outFileFormat->setChecked(true);
     ui->rbtn_hspiceFormat->setChecked(false);
     ui->rbtn_spectreFormat->setChecked(false);
     ouputFormat = cOutFileFormat::fmtDotout;
+    ui->ledt_outputFile->setText(simulResultOutPath);
 
     connectAllSlots(); //connect all signals and slots
 

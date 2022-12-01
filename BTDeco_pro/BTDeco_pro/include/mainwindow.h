@@ -80,6 +80,7 @@ private:
 
     QString opticalToolPath;
     QString selectricToolPath;
+    QString simulResultOutPath;
     static QProcess* opticalSimulatorProcess;
     static QProcess* electricSimulatorProcess;
 
