@@ -33,9 +33,10 @@
 
 
 
-class FilePathMag
-{
-enum class Platform{ windows, linux};
+class FilePathMag{
+
+enum class Platform{ windows, clinux };
+
 public:
     FilePathMag(){
         if(SYSTEM_FLAGS == "windows")
@@ -44,7 +45,7 @@ public:
             std::cout << "current platforms: " << "windows" << std::endl;
         }
         else{
-            m_curPlatform = Platform::linux;
+            m_curPlatform = Platform::clinux;
             std::cout << "current platforms: " << "linux" << std::endl;
         }
     }
@@ -56,12 +57,12 @@ public:
         getcwd(buffer, sizeof(buffer)-1);
         m_currentPath = std::string(buffer);
         std::cout << "currentPath: " << m_currentPath << std::endl;
-#ifdef _WIN32 // Windows
-       // getcwd(buffer, sizeof(buffer)-1);
-        //m_currentPath = std::string(buffer);
-#else
+// #ifdef _WIN32 // Windows
+//        // getcwd(buffer, sizeof(buffer)-1);
+//         //m_currentPath = std::string(buffer);
+// #else
        
-#endif
+// #endif
         return m_currentPath;
     }
 
