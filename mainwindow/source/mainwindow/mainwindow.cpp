@@ -129,6 +129,7 @@ void MainWindow::setupToolBar()
         ToolBar *tb = new ToolBar(QString::fromLatin1("Tool Bar %1").arg(i + 1), this);
         toolBars.append(tb);
         addToolBar(tb);
+
     }
 }
 

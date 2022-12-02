@@ -1,3 +1,0 @@
-/home/huangli/qtexample/Qt5-MusicPlayer/LightMusicPlayer/LightMusicPlayer/build/CMakeFiles/Arithmetic.dir
-/home/huangli/qtexample/Qt5-MusicPlayer/LightMusicPlayer/LightMusicPlayer/build/CMakeFiles/edit_cache.dir
-/home/huangli/qtexample/Qt5-MusicPlayer/LightMusicPlayer/LightMusicPlayer/build/CMakeFiles/rebuild_cache.dir

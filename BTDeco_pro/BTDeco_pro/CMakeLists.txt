@@ -3,8 +3,31 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.20.0)
 include(FetchContent)
 #指定项目名称
 PROJECT(BTDECO LANGUAGES CXX)
-set(CMAKE_CXX_STANDARD 11)
 
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE "Debug") #Release 如果是发行版本就更换Debug为Release
+if(CMAKE_BUILD_TYPE STREQUAL Debug)
+    add_definitions(-D_DEBUG) #添加D_DEBUG编译参数
+endif()
+
+# 设置编译参数
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+
+
+# 设置编译工具链，备用
+#set(COMPILER_PREFIX "arm-linux-")
+#set(CMAKE_C_COMPILER ${COMPILER_PREFIX}gcc)
+#set(CMAKE_CXX_COMPILER ${COMPILER_PREFIX}g++)
+
+
+# 环境设置
+SET(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+
+
+#QT设置
 #指定Qt路径和启用当前目录(按需设置),兼容window和linux
 IF(WIN32)
     message("In windows")
@@ -17,20 +40,12 @@ ELSE()
     message(${Qt5_DIR})
     message("In linux like")
 ENDIF()
-
-
-SET(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-#引入Qt库
 find_package(Qt5 COMPONENTS Core Gui Widgets Sql  Network Concurrent Multimedia REQUIRED)
 
 
 
-#添加预编译宏
-# ADD_DEFINITIONS(-DTORRENT_LIBRARY)
-# ADD_DEFINITIONS(-DNO_FREETYPE)
-# ADD_DEFINITIONS(-DUNICODE -D_UNICODE)
-# ADD_DEFINITIONS(-DHCPP_LEGACY_API)
+
+
 
 #将各种文件归类到指定变量
 FILE(GLOB_RECURSE HEADER_FILES ${CMAKE_SOURCE_DIR}/include/*.h)
@@ -69,10 +84,6 @@ SOURCE_GROUP("Translation Files" FILES ${TS_FILES})
 SOURCE_GROUP("Generated Files" FILES ${MOC_FILES} ${FORMS_UIC} ${RES_FILES} ${TS_FILES})
 
 #引入库目录路径
-# SET(SDK_PATH "../SDK-PATH")
-# LINK_DIRECTORIES(${SDK_PATH}/Lib ${SDK_PATH}/opencv3.4/lib ${SDK_PATH}/libpng/lib ${SDK_PATH}/log4cplus/lib ${SDK_PATH}/zlib/lib)
-
-#引入库目录路径
 LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/x64)
 
 #将所有文件编译成EXE,并设置以WIN32的方式运行
@@ -85,8 +96,9 @@ ENDIF()
 #设置EXE文件的输出目录
 SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/x64)
 
-
+#包含自动文件生成文件的路径
 INCLUDE_DIRECTORIES(${AUTOGEN_BUILD_DIR})
+message("auto gen file:${AUTOGEN_BUILD_DIR}")
 
 #链接以上lib库
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${PROJECT_LIBRARIES})
@@ -94,19 +106,12 @@ target_include_directories(${PROJECT_NAME} PUBLIC "./include")
 
 
 
-#第三方工具库
-# FetchContent_Declare(jsoncpp
-#         GIT_REPOSITORY https://github.com/open-source-parsers/jsoncpp.git
-#         GIT_TAG 1.9.4)
 
-# # 建议使用压缩包的方式依赖，下载速度更快
-# #FetchContent_Declare(jsoncpp
-# #        URL https://github.com/open-source-parsers/jsoncpp/archive/1.9.4.tar.gz)
-# FetchContent_MakeAvailable(jsoncpp)
+#第三方工具库
 #spdlog
 FetchContent_Declare(
     spdlog 
-    GIT_REPOSITORY https://github.com/gabime/spdlog.git
+    GIT_REPOSITORY  git@github.com:gabime/spdlog.git
     GIT_TAG v1.11.0
     SOURCE_DIR
     ${CMAKE_SOURCE_DIR}/lib/spdlog)
