@@ -40,11 +40,8 @@ ELSE()
     message(${Qt5_DIR})
     message("In linux like")
 ENDIF()
+
 find_package(Qt5 COMPONENTS Core Gui Widgets Sql  Network Concurrent Multimedia REQUIRED)
-
-
-
-
 
 
 #将各种文件归类到指定变量
