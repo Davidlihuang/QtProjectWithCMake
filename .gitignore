@@ -1,1 +1,3 @@
-mainwindow/build
+./mainwindow/build/
+./mainwindow/bin/
+

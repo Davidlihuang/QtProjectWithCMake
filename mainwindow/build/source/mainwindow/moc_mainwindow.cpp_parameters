@@ -1,8 +1,0 @@
--I/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/./mainwindow
--I/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/./toolbar
--I/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/./colorswatch
--I/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/./qrc
--I/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/./ui
--o
-/home/huangli/qtexample/QtProjectWithCMake/mainwindow/build/source/mainwindow/moc_mainwindow.cpp
-/home/huangli/qtexample/QtProjectWithCMake/mainwindow/source/mainwindow/mainwindow.h
