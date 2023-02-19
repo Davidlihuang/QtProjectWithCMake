@@ -15,7 +15,7 @@ public:
         using namespace OpenAI;
         
         request.method();
-        string key("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");
+        string key("");
         string model("text-davinci-003");
         string prompt("你好你是谁，你父亲是谁，住在哪?");
 
