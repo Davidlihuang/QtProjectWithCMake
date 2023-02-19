@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "painter.h"
-
+#include <iostream>
 using namespace std;
 int main()
 {

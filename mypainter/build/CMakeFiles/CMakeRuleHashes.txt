@@ -1,8 +1,0 @@
-# Hashes of file build rules.
-7de8dd04b7f9e0c5d8cb8b029f0cf2b1 source/CMakeFiles/painterProj_autogen
-80919bb6cbb8ad59b28398c0905e39ba source/gui/qrc/CMakeFiles/qrc_autogen
-5b0b350f642a8729e1cf3cf54b1db505 source/gui/qrc/qrc_form.cpp
-781d66b3a8d87737ff8763cc28cae048 source/mainwindow/CMakeFiles/mainwindow_autogen
-461b239cac1c09c8de9e3ea149440880 source/mainwindow/moc_mainwindow.cpp
-6c4293bba95ea30dfd26c0ef043a2728 source/painter/CMakeFiles/painter_autogen
-eff2247edb6c9eb3521689b11ba44d1a source/painter/moc_painter.cpp

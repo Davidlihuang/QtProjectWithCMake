@@ -1,0 +1,285 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20.0"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "source",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4
+					],
+					"jsonFile" : "directory-source-5b5a50b02d94cdb5eb2c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "source",
+					"targetIndexes" : 
+					[
+						3,
+						4
+					]
+				},
+				{
+					"build" : "source/mainwindow",
+					"jsonFile" : "directory-source.mainwindow-27fadb3443b6793d5fdb.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20.0"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "source/mainwindow",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "source/painter",
+					"jsonFile" : "directory-source.painter-63e9a7a24cd05996c001.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20.0"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 3,
+					"source" : "source/painter",
+					"targetIndexes" : 
+					[
+						2,
+						5
+					]
+				},
+				{
+					"build" : "source/gui",
+					"childIndexes" : 
+					[
+						5,
+						6
+					],
+					"jsonFile" : "directory-source.gui-b0bcd17ec41731e35f9d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20.0"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 4,
+					"source" : "source/gui"
+				},
+				{
+					"build" : "source/gui/qrc",
+					"jsonFile" : "directory-source.gui.qrc-5eb7464b2b0f70431548.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20.0"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 5,
+					"source" : "source/gui/qrc",
+					"targetIndexes" : 
+					[
+						6,
+						7
+					]
+				},
+				{
+					"build" : "source/gui/ui",
+					"jsonFile" : "directory-source.gui.ui-0b5e5f1ad83d6a0cbc02.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20.0"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 6,
+					"source" : "source/gui/ui"
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "projectName"
+				},
+				{
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "painterProj",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3,
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "mainwindow",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "painter",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						2,
+						5
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						5,
+						6
+					],
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "gui",
+					"parentIndex" : 1
+				},
+				{
+					"directoryIndexes" : 
+					[
+						5
+					],
+					"name" : "qrc",
+					"parentIndex" : 4,
+					"targetIndexes" : 
+					[
+						6,
+						7
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						6
+					],
+					"name" : "formui",
+					"parentIndex" : 4
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "mainwindow::@8dadf22c2101f5c868ff",
+					"jsonFile" : "target-mainwindow-eee8b7c38d04c6694011.json",
+					"name" : "mainwindow",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "mainwindow_autogen::@8dadf22c2101f5c868ff",
+					"jsonFile" : "target-mainwindow_autogen-169fe3b2c32e30ca865d.json",
+					"name" : "mainwindow_autogen",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "painter::@3012d27abf9079ba68b1",
+					"jsonFile" : "target-painter-77c5311fea57e415cdef.json",
+					"name" : "painter",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "painterProj::@411ffd8adc737496fe19",
+					"jsonFile" : "target-painterProj-eef7c6ed537fe57d2b6a.json",
+					"name" : "painterProj",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "painterProj_autogen::@411ffd8adc737496fe19",
+					"jsonFile" : "target-painterProj_autogen-590cd8b14b85860a0f57.json",
+					"name" : "painterProj_autogen",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "painter_autogen::@3012d27abf9079ba68b1",
+					"jsonFile" : "target-painter_autogen-ea25421cad3ca8418d56.json",
+					"name" : "painter_autogen",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "qrc::@286da38f19dc9df37f9e",
+					"jsonFile" : "target-qrc-003af2b8dea0e6619942.json",
+					"name" : "qrc",
+					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "qrc_autogen::@286da38f19dc9df37f9e",
+					"jsonFile" : "target-qrc_autogen-b7ee3d3898f2395a6acc.json",
+					"name" : "qrc_autogen",
+					"projectIndex" : 5
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/huangli/Desktop/QtProjectWithCMake/mypainter/build",
+		"source" : "/home/huangli/Desktop/QtProjectWithCMake/mypainter"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
