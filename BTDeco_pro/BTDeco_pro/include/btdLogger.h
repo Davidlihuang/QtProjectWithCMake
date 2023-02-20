@@ -11,6 +11,7 @@
 #include "spdlog/sinks/stdout_color_sinks.h" // or "../stdout_sinks.h" if no color needed
 #include "spdlog/sinks/basic_file_sink.h"
 #include "spdlog/sinks/rotating_file_sink.h"
+#include "spdlog/sinks/qt_sinks.h"
 
 #ifdef _WIN32 // Windows
     #include <direct.h>
@@ -160,6 +161,7 @@ private:
     static std::once_flag initInstanceFlag;
 
     std::shared_ptr<spdlog::logger> m_logger;
+    std::shared_ptr<spdlog::logger> m_qtLogger;
 
 private:
     static void initSingleton(const LogInfo* info)
@@ -169,11 +171,20 @@ private:
     }
 
 public:
+    bool createQtLogger(QObject *qt_object, const std::string &meta_method);
     std::shared_ptr<spdlog::logger> getLogger();
+    std::shared_ptr<spdlog::logger> getQtLogger();
 };
 
 
 // use embedded macro to support file and line number
+#define LOG_TRACE(...) SPDLOG_LOGGER_CALL(BtdLogger::getInstance()->getLogger().get(), spdlog::level::trace, __VA_ARGS__)
+#define LOG_DEBUG(...) SPDLOG_LOGGER_CALL(BtdLogger::getInstance()->getLogger().get(), spdlog::level::debug, __VA_ARGS__)
+#define LOG_INFO(...) SPDLOG_LOGGER_CALL(BtdLogger::getInstance()->getLogger().get(), spdlog::level::info, __VA_ARGS__)
+#define LOG_WARN(...) SPDLOG_LOGGER_CALL(BtdLogger::getInstance()->getLogger().get(), spdlog::level::warn, __VA_ARGS__)
+#define LOG_ERROR(...) SPDLOG_LOGGER_CALL(BtdLogger::getInstance()->getLogger().get(), spdlog::level::err, __VA_ARGS__)
+
+//QT logger 
 #define LOG_TRACE(...) SPDLOG_LOGGER_CALL(BtdLogger::getInstance()->getLogger().get(), spdlog::level::trace, __VA_ARGS__)
 #define LOG_DEBUG(...) SPDLOG_LOGGER_CALL(BtdLogger::getInstance()->getLogger().get(), spdlog::level::debug, __VA_ARGS__)
 #define LOG_INFO(...) SPDLOG_LOGGER_CALL(BtdLogger::getInstance()->getLogger().get(), spdlog::level::info, __VA_ARGS__)

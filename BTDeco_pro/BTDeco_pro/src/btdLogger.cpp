@@ -1,5 +1,5 @@
 #include "btdLogger.h"
-
+#include <QDebug>
 
 BtdLogger *BtdLogger::instance = nullptr;
 std::once_flag BtdLogger::initInstanceFlag;
@@ -28,15 +28,17 @@ BtdLogger::BtdLogger(const LogInfo *info)
         //接受外部的数据来初始化单例
         if (info != nullptr)
         {
-            console = info->isConsole;
-            log_dir = info->savePath;
-            loggerName = info->loggerName;
-            pattern = info->loggerName;
-            level = info->logLevel;
+            console      = info->isConsole;
+            log_dir      = info->savePath;
+            loggerName   = info->loggerName;
+            pattern      = info->pattern;
+            level        = info->logLevel;
             eachFileSize = info->eachFileSize;
-            maxFileNums = info->maxFileNums;
-            threadNum = info->threaNum;
-            poolSize = info->poolSize;
+            maxFileNums  = info->maxFileNums;
+            threadNum    = info->threaNum;
+            poolSize     = info->poolSize;
+            qDebug() <<"pattern  = " << pattern.c_str() ;
+            qDebug()<<"set info" ;
         }
 
         // 检查当前目录，不存在则创建之
@@ -76,7 +78,7 @@ BtdLogger::BtdLogger(const LogInfo *info)
 
 
             // custom format and flush time
-            m_logger->set_pattern("%Y-%m-%d %H:%M:%S.%f <thread %t> [%l] [%@] %v"); // with timestamp, thread_id, filename and line number
+            m_logger->set_pattern(pattern); // with timestamp, thread_id, filename and line number
 
             if (level == "trace")
             {
@@ -131,3 +133,19 @@ BtdLogger::getLogger()
 {
     return m_logger;
 }
+
+std::shared_ptr<spdlog::logger>
+BtdLogger::getQtLogger()
+{
+    
+    return m_qtLogger;
+}
+
+bool BtdLogger::createQtLogger(QObject *qt_object, const std::string &meta_method)
+    {
+         //< 创建qtLogger
+        m_qtLogger = spdlog::qt_logger_mt("QLogger",qt_object, meta_method);
+        spdlog::register_logger(m_qtLogger);
+        if(m_qtLogger == nullptr) return false;
+        return true;
+    }
