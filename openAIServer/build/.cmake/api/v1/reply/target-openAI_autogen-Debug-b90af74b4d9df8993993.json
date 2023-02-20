@@ -1,0 +1,97 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"source/openAI/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 0,
+			"id" : "Complection::@1eef78cae40e9f173c5f"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "Deployment::@2b35fa5e1ef214452eeb"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "Engine::@a7df27b1bf190fd28a2f"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "ErrorObject::@3ebc4ec61e5308dd4f00"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "File::@109fd5015335d9c28afd"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "FineTune::@9ded7a579855c5c3848b"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "Image::@83603f5150e5bd939691"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "Model::@783e3e9c2ee36b8a3452"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "Moderation::@c6cf1bc7094a0634ce29"
+		}
+	],
+	"id" : "openAI_autogen::@3cc09555bae2efee4f9d",
+	"isGeneratorProvided" : true,
+	"name" : "openAI_autogen",
+	"paths" : 
+	{
+		"build" : "source/openAI",
+		"source" : "source/openAI"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/source/openAI/CMakeFiles/openAI_autogen",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/source/openAI/CMakeFiles/openAI_autogen.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}
