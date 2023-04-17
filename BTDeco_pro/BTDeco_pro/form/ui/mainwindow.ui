@@ -860,7 +860,7 @@
            <item row="0" column="0">
             <widget class="QPlainTextEdit" name="txedt_msg">
              <property name="plainText">
-              <string>-&gt; status window</string>
+              <string/>
              </property>
             </widget>
            </item>

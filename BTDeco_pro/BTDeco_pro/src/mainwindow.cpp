@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     curPath = QDir::currentPath();
     opticalToolPath = curPath;
     simulResultOutPath = curPath;
+    ui->txedt_msg->appendPlainText("BTD Electric and optical mixed simulator");
 
     ///< open netlist
     ui->rbtn_specifyNetlist->setChecked(true);
