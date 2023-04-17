@@ -3,11 +3,15 @@
 #include <string>
 #include <curl/curl.h>
 #include <unordered_map>
+#include  <spdlog/spdlog.h>
+#include "nlohmann/json.hpp"
+
 
 using namespace std;
-
+using Json = nlohmann::json;
 namespace OpenAI
 {
+    
 
     class OpenAICompletion
     {
@@ -48,7 +52,10 @@ namespace OpenAI
                 //m_logitBiasMap ;                  //Do not add to http body,when empty
                 m_user  =  "";                              //Do not add to http body, when empty
             }
-
+        void setPrompt(const string& str)
+        {
+            m_prompt = str;
+        }
         ~OpenAICompletion() {}
 
         std::string GetCompletion();
@@ -77,7 +84,8 @@ namespace OpenAI
         int                                                        m_bestOf;
         unordered_map<string, int>   m_logitBiasMap;
         string                                                  m_user;
-
+        Json            m_inputPrompt;
+        Json            m_outputResult;
     };
 
 }; // openAI namesapce

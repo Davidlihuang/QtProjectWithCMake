@@ -24,4 +24,4 @@ include_directories(${HEADER_SEARCH_PATHS})
 
 #和Qt库链接
 set(Qt5lib Qt5::Core Qt5::Gui Qt5::Widgets)
-target_link_libraries(${PROJECT_NAME} ${LIBS})
+target_link_libraries(${PROJECT_NAME} ${LIBS}  spdlog::spdlog nlohmann_json::nlohmann_json )

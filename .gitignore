@@ -1,5 +1,57 @@
-./mainwindow/bin/
-mainwindow/build
-BTDeco_pro/BTDeco_pro/build
-BTDeco_pro/build-BTDeco_pro-Desktop_Qt_5_13_0_GCC_64bit-Default
->>>>>>> dd3875841aaa2a2f908565b7cd8a6a8d950b71fd
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# 编译生成的文件
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# 编译器生成的文件夹
+bin/
+build/
+Debug/
+Release/
+
+# IDE 生成的文件夹
+.vs/
+.idea/
+
+# 依赖库
+/lib/
+/libs/
+/vendor/
+*build/*
+/thirdlib/

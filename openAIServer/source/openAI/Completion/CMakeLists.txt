@@ -13,4 +13,4 @@ target_include_directories(${PROJECT_NAME} PUBLIC  .)
 
 # #link sub moudle
 # set(LIBS lib::complection lib::Image lib::Engine lib::ErrorObject lib::Deployment lib::File lib::FineTune lib::Model lib::Moderation)
-target_link_libraries(${PROJECT_NAME} "-lcurl") 
+target_link_libraries(${PROJECT_NAME}  spdlog::spdlog nlohmann_json::nlohmann_json "-lcurl" ) 

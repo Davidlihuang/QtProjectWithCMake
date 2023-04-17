@@ -19,17 +19,19 @@ std::string  OpenAI::OpenAICompletion::GetCompletion()
                 curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
 
                 // 设置 HTTP 请求体
-                std::string data = 
-                            "{\n"
-                                  " \"model\": \""  +  this->m_model + "\",\n"
-                                  " \"prompt\": \"" + this->m_prompt + "\",\n"
-                                  " \"max_tokens\": "  + std::to_string(this->m_maxTokens) + ",\n"
-                                  " \"temperature\": "    +  std::to_string(this->m_temperature) + ",\n"
-                                  " \"n\":" + std::to_string(this->m_genNumerical) + ",\n"
-                                  " \"top_p\":"  + std::to_string(m_topP) + "\n" 
-                            "}";
-                std::cout << "data: " << data << std::endl;
-               
+                m_inputPrompt["model"]             = this->m_model;
+                m_inputPrompt["prompt"]           = this->m_prompt;
+                m_inputPrompt["max_tokens"]  =  this->m_maxTokens;
+                m_inputPrompt["temperature"]  =  this->m_temperature;
+                m_inputPrompt["n"]                         = this->m_genNumerical;
+                m_inputPrompt["top_p"]                = m_topP;
+                
+               // std::cout << "messaged body: " <<std::endl;
+               // std::cout << setw(4) << m_inputPrompt << std::endl;
+
+                std::string data = m_inputPrompt.dump();
+                
+                // 
                 curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.c_str());
 
                 // 将响应写入到字符串中
@@ -49,5 +51,14 @@ std::string  OpenAI::OpenAICompletion::GetCompletion()
                 curl_easy_cleanup(curl);
             }
 
+           m_outputResult = Json::parse(response);
+          std::cout <<"resBody: "<< setw(4) << m_outputResult << std::endl;
+           auto choices = m_outputResult["choices"];
+           for(size_t i=0; i< choices.size();i++)
+           {
+                auto item = m_outputResult["choices"][i];
+                response = item["text"];
+           }
+           
             return response;
         }
